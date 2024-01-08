@@ -1,49 +1,40 @@
 #!/usr/bin/python3
-"""Updated Implementation of the 'square' class that inherits from 'Rectangle':
+# -*- coding: utf-8 -*-
+"""
+Created on Fri May 29 15:13:37 2020
+
+@author: Robinson Montes
 """
 
-'''
-ile_Name: 11-square.py
-Created Date: 9th of June, 2023
-Authur: David James Taiye (Official0mega)
-Size: Undefined
-Project Title: 0x0A-python-inheritance
-Status: Submitted.
-'''
+
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
-class Square(Rectangle):
+class Square(BaseGeometry):
     """
-    # Write a class Rectangle that inherits from BaseGeometry..
-    # ...(task based on 9-rectangle.py)  (task based on 10-square.py).
-    # Instantiation with width and height: def __init__(self, width, height):
-    # VARIABLE(" "):
-    # Square(Rectangle): Square #2
-    # width and height must be private. No getter or setter
-    # width and height must be positive integers, validated...
-    # ....by integer_validator....
-    # Return: Always 0. (Success)
+    A Square class shape, inheirts from BaseGeometry
     """
-    """
-    The 'Square' class inherits from 'Rectangle' and has its own constructor.
-    The size of the square is passed as an argument to the constructor.
-    It is stored in the private attribute '__size' and validated using the..
-    'Integer_validator' method.The 'super().__init__(size, size)' line is...
-    used to call the constructor of the 'Rectangle' class and pass the size..
-    as both the width and height...."""
     def __init__(self, size):
-        self.__size = size
-        self.integer_validator("size", size)
-        super().__init__(size, size)
+        """"
+        Init function for Square
 
-    def area(self):
+        Attributes:
+            size (int): The size of the square
         """
-        The 'area()' method computes the area of the Geometry and returns
-        the integer of the Geometry object"""
-        return self.__size * self.__size
+        self.integer_validator("size", size)
+        self.__size = size
 
     def __str__(self):
         """
-        The '__str__' method is overridden to return a string representation
-        of the Square in the desired format...."""
-        return "[Square] {}/{}".format(self.__size, self.__size)
+        str funtion to print with/height
+
+        Returns:
+            Return width/height
+        """
+        return '[Square] ' + str(self.__size) + '/' + str(self.__size)
+
+    def area(self):
+        """
+        A function that calculates the area of the Square
+        """
+        return self.__size ** 2
